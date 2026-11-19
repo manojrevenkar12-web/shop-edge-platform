@@ -1,0 +1,19 @@
+[project]
+name = "shop-edge-platform"
+version = "1.0.0"
+description = "Platform for a large e-commerce catalogue on GKE: Varnish and CDN caching with tag purges, Prometheus SLOs and burn-rate alerts, Jenkins with SonarQube gates and canary rollouts, cloud cost per service."
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 125
+target-version = "py312"
+extend-exclude = ["web"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003", "RUF005", "RUF012", "SIM108", "E741"]

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccountName: jenkins-deployer
+  containers:
+    - {name: php, image: "php:8.3-cli", command: [sleep], args: [infinity]}
+    - {name: sonar, image: "sonarsource/sonar-scanner-cli:11", command: [sleep], args: [infinity]}
+    - {name: kaniko, image: "gcr.io/kaniko-project/executor:v1.23.2-debug", command: [sleep], args: [infinity]}
+    - {name: tools, image: "europe-west3-docker.pkg.dev/shop-prod/platform/tools:latest", command: [sleep], args: [infinity]}

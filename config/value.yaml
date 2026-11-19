@@ -1,0 +1,3 @@
+# Assumptions for money in the README (the simulated shop is a slice of the real one; scale with your traffic).
+order_value_eur: 96
+cancellation_cost_eur: 18     # handling and goodwill when an order for an item out of stock is cancelled

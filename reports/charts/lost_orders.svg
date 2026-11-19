@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 458" font-family="Inter, system-ui, sans-serif" role="img" aria-label="Orders lost to errors per month (simulated shop)">
+<rect width="780" height="458" fill="#fcfcfb"/>
+<text x="16" y="24" font-size="14" font-weight="600" fill="#0b0b0b">Orders lost to errors per month (simulated shop)</text>
+<text x="320" y="58" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Shop as found</text>
+<rect x="330" y="47" width="125.9" height="16" rx="4" fill="#eb6834"/>
+<line x1="419.0" x2="494.7" y1="55" y2="55" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="500.7" y="59" font-size="11" fill="#52514e">1,383</text>
+<text x="320" y="84" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Five-minute TTL instead of purges</text>
+<rect x="330" y="73" width="126.9" height="16" rx="4" fill="#eb6834"/>
+<line x1="418.9" x2="495.7" y1="81" y2="81" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="501.7" y="85" font-size="11" fill="#52514e">1,394</text>
+<text x="320" y="110" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, broad category bans</text>
+<rect x="330" y="99" width="205.7" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="419.5" x2="663.3" y1="107" y2="107" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="669.3" y="111" font-size="11" fill="#52514e">2,259</text>
+<text x="320" y="136" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, only utm_* stripped</text>
+<rect x="330" y="125" width="26.3" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="347.5" x2="365.4" y1="133" y2="133" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="371.4" y="137" font-size="11" fill="#52514e">289</text>
+<text x="320" y="162" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, analytics cookies bypass the cache</text>
+<rect x="330" y="151" width="104.1" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="393.0" x2="478.5" y1="159" y2="159" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="484.5" y="163" font-size="11" fill="#52514e">1,143</text>
+<text x="320" y="188" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no grace</text>
+<rect x="330" y="177" width="11.7" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="338.9" x2="344.7" y1="185" y2="185" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="350.7" y="189" font-size="11" fill="#52514e">128</text>
+<text x="320" y="214" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, release flushes the cache</text>
+<rect x="330" y="203" width="12.0" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="339.0" x2="345.4" y1="211" y2="211" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="351.4" y="215" font-size="11" fill="#52514e">132</text>
+<text x="320" y="240" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no cache warming</text>
+<rect x="330" y="229" width="10.9" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="338.2" x2="343.9" y1="237" y2="237" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="349.9" y="241" font-size="11" fill="#52514e">120</text>
+<text x="320" y="266" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, CPU scaling with a high floor</text>
+<rect x="330" y="255" width="7.9" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="336.5" x2="339.6" y1="263" y2="263" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="345.6" y="267" font-size="11" fill="#52514e">87</text>
+<text x="320" y="292" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no campaign prescale</text>
+<rect x="330" y="281" width="14.5" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="339.1" x2="351.6" y1="289" y2="289" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="357.6" y="293" font-size="11" fill="#52514e">159</text>
+<text x="320" y="318" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, threshold alerts</text>
+<rect x="330" y="307" width="10.9" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="338.1" x2="343.9" y1="315" y2="315" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="349.9" y="319" font-size="11" fill="#52514e">120</text>
+<text x="320" y="344" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, ratio burn-rate alerts</text>
+<rect x="330" y="333" width="10.9" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="338.1" x2="343.9" y1="341" y2="341" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="349.9" y="345" font-size="11" fill="#52514e">120</text>
+<text x="320" y="370" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no SonarQube gate</text>
+<rect x="330" y="359" width="11.0" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="338.2" x2="344.0" y1="367" y2="367" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="350.0" y="371" font-size="11" fill="#52514e">120</text>
+<text x="320" y="396" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no canary</text>
+<rect x="330" y="385" width="10.9" height="16" rx="4" fill="#b9b8b3"/>
+<line x1="338.1" x2="343.9" y1="393" y2="393" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="349.9" y="397" font-size="11" fill="#52514e">120</text>
+<text x="320" y="422" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="600">Platform</text>
+<rect x="330" y="411" width="10.9" height="16" rx="4" fill="#2a78d6"/>
+<line x1="338.1" x2="343.9" y1="419" y2="419" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="349.9" y="423" font-size="11" fill="#52514e">120</text>
+<text x="330" y="450" font-size="10" fill="#52514e">Whiskers: 95% interval from resampling days.</text></svg>

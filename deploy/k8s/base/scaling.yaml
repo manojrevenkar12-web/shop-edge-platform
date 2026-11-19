@@ -1,0 +1,37 @@
+# Replicas follow uncached renders per second (Prometheus), with the floor raised ahead of known campaigns.
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: shop-php
+spec:
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: shop-php
+  minReplicaCount: 6
+  maxReplicaCount: 140
+  advanced:
+    horizontalPodAutoscalerConfig:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: 300
+        scaleUp:
+          stabilizationWindowSeconds: 0
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: http://frontend.gmp-public.svc:9090
+        query: sum(rate(shop_renders_total[1m]))
+        threshold: "5.5"
+    - type: cron
+      metadata:
+        timezone: Europe/Berlin
+        start: 0 23 26 11 *
+        end: 0 3 27 11 *
+        desiredReplicas: "70"
+    - type: cron
+      metadata:
+        timezone: Europe/Berlin
+        start: 30 18 27 11 *
+        end: 0 23 27 11 *
+        desiredReplicas: "55"

@@ -1,0 +1,574 @@
+{
+ "designs": {
+  "platform": {
+   "availability": 0.999856,
+   "availability_ci": [
+    0.999825,
+    0.999881
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99984,
+   "bf_fast_share": 0.999254,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999813,
+   "hit_ratio": 0.8179,
+   "label": "Platform: tag purges, grace, RPS scaling, burn-rate alerts, gates",
+   "lost_orders_ci": [
+    70.5,
+    116.9
+   ],
+   "lost_orders_per_month": 90.4,
+   "lost_revenue_per_month": 8680.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_broad_bans": {
+   "availability": 0.998664,
+   "availability_ci": [
+    0.997885,
+    0.99948
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.995473,
+   "bf_fast_share": 0.982009,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1031.0,
+   "cost_eur_per_month": 12947.0,
+   "defect_hours_full": 0.0,
+   "detected": 44,
+   "episodes": 73,
+   "false_pages_per_week": 0.17,
+   "fast_share": 0.99594,
+   "hit_ratio": 0.5817,
+   "label": "Platform, broad category bans",
+   "lost_orders_ci": [
+    723.6,
+    3604.3
+   ],
+   "lost_orders_per_month": 2006.3,
+   "lost_revenue_per_month": 192600.0,
+   "mttd_minutes": 0.5,
+   "oversold_per_month": 0.0,
+   "pages": 45,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_cpu_scaling": {
+   "availability": 0.999882,
+   "availability_ci": [
+    0.999872,
+    0.999891
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.999903,
+   "bf_fast_share": 1.0,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 2617.0,
+   "cost_eur_per_month": 14533.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 0,
+   "false_pages_per_week": 0.0,
+   "fast_share": 1.0,
+   "hit_ratio": 0.818,
+   "label": "Platform, CPU scaling with a high floor",
+   "lost_orders_ci": [
+    66.3,
+    91.4
+   ],
+   "lost_orders_per_month": 77.2,
+   "lost_revenue_per_month": 7420.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_flush_on_deploy": {
+   "availability": 0.999854,
+   "availability_ci": [
+    0.999825,
+    0.999878
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.999843,
+   "bf_fast_share": 0.999251,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1019.0,
+   "cost_eur_per_month": 12935.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 4,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999815,
+   "hit_ratio": 0.8121,
+   "label": "Platform, release flushes the cache",
+   "lost_orders_ci": [
+    78.3,
+    123.0
+   ],
+   "lost_orders_per_month": 97.6,
+   "lost_revenue_per_month": 9370.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_keeps_cookies": {
+   "availability": 0.999247,
+   "availability_ci": [
+    0.998887,
+    0.999565
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99902,
+   "bf_fast_share": 0.997621,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1069.0,
+   "cost_eur_per_month": 12985.0,
+   "defect_hours_full": 0.0,
+   "detected": 6,
+   "episodes": 10,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999074,
+   "hit_ratio": 0.4952,
+   "label": "Platform, analytics cookies bypass the cache",
+   "lost_orders_ci": [
+    481.7,
+    1313.8
+   ],
+   "lost_orders_per_month": 868.5,
+   "lost_revenue_per_month": 83380.0,
+   "mttd_minutes": 3.1,
+   "oversold_per_month": 0.0,
+   "pages": 8,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_no_canary": {
+   "availability": 0.999732,
+   "availability_ci": [
+    0.999607,
+    0.999831
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99984,
+   "bf_fast_share": 0.999254,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 0,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 19.4,
+   "detected": 2,
+   "episodes": 7,
+   "false_pages_per_week": 0.5,
+   "fast_share": 0.999813,
+   "hit_ratio": 0.8179,
+   "label": "Platform, no canary",
+   "lost_orders_ci": [
+    105.0,
+    240.2
+   ],
+   "lost_orders_per_month": 170.3,
+   "lost_revenue_per_month": 16350.0,
+   "mttd_minutes": 34.0,
+   "oversold_per_month": 0.0,
+   "pages": 6,
+   "peak_pods": 70,
+   "reached_everyone": 5,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_no_grace": {
+   "availability": 0.999853,
+   "availability_ci": [
+    0.999823,
+    0.999879
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.999839,
+   "bf_fast_share": 0.999253,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999812,
+   "hit_ratio": 0.814,
+   "label": "Platform, no grace",
+   "lost_orders_ci": [
+    77.0,
+    123.7
+   ],
+   "lost_orders_per_month": 97.1,
+   "lost_revenue_per_month": 9320.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_no_prescale": {
+   "availability": 0.999735,
+   "availability_ci": [
+    0.999573,
+    0.99986
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.999271,
+   "bf_fast_share": 0.995862,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 821.0,
+   "cost_eur_per_month": 12737.0,
+   "defect_hours_full": 0.0,
+   "detected": 6,
+   "episodes": 23,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999095,
+   "hit_ratio": 0.8179,
+   "label": "Platform, no campaign prescale",
+   "lost_orders_ci": [
+    74.4,
+    260.7
+   ],
+   "lost_orders_per_month": 149.9,
+   "lost_revenue_per_month": 14390.0,
+   "mttd_minutes": 1.8,
+   "oversold_per_month": 0.0,
+   "pages": 5,
+   "peak_pods": 9,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_no_sonar_gate": {
+   "availability": 0.999854,
+   "availability_ci": [
+    0.999824,
+    0.99988
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99984,
+   "bf_fast_share": 0.999254,
+   "blocked_by_gate": 0,
+   "caught_by_canary": 11,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999813,
+   "hit_ratio": 0.8179,
+   "label": "Platform, no SonarQube gate",
+   "lost_orders_ci": [
+    71.4,
+    117.6
+   ],
+   "lost_orders_per_month": 91.4,
+   "lost_revenue_per_month": 8770.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_no_warm": {
+   "availability": 0.999855,
+   "availability_ci": [
+    0.999825,
+    0.999881
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99984,
+   "bf_fast_share": 0.999254,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999813,
+   "hit_ratio": 0.8174,
+   "label": "Platform, no cache warming",
+   "lost_orders_ci": [
+    70.9,
+    117.3
+   ],
+   "lost_orders_per_month": 90.8,
+   "lost_revenue_per_month": 8720.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_ratio_burn_alerts": {
+   "availability": 0.999856,
+   "availability_ci": [
+    0.999825,
+    0.999881
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99984,
+   "bf_fast_share": 0.999254,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 0.0,
+   "detected": 0,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999813,
+   "hit_ratio": 0.8179,
+   "label": "Platform, ratio burn-rate alerts",
+   "lost_orders_ci": [
+    70.5,
+    116.9
+   ],
+   "lost_orders_per_month": 90.4,
+   "lost_revenue_per_month": 8680.0,
+   "mttd_minutes": null,
+   "oversold_per_month": 0.0,
+   "pages": 0,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_threshold_alerts": {
+   "availability": 0.999856,
+   "availability_ci": [
+    0.999825,
+    0.999881
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.99984,
+   "bf_fast_share": 0.999254,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1018.0,
+   "cost_eur_per_month": 12934.0,
+   "defect_hours_full": 0.0,
+   "detected": 5,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999813,
+   "hit_ratio": 0.8179,
+   "label": "Platform, threshold alerts",
+   "lost_orders_ci": [
+    70.5,
+    116.9
+   ],
+   "lost_orders_per_month": 90.4,
+   "lost_revenue_per_month": 8680.0,
+   "mttd_minutes": 2.9,
+   "oversold_per_month": 0.0,
+   "pages": 8,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "platform_utm_only": {
+   "availability": 0.999654,
+   "availability_ci": [
+    0.999443,
+    0.999808
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.999261,
+   "bf_fast_share": 0.99821,
+   "blocked_by_gate": 6,
+   "caught_by_canary": 5,
+   "compute_eur_per_month": 1039.0,
+   "cost_eur_per_month": 12954.0,
+   "defect_hours_full": 0.0,
+   "detected": 3,
+   "episodes": 5,
+   "false_pages_per_week": 0.0,
+   "fast_share": 0.999525,
+   "hit_ratio": 0.7261,
+   "label": "Platform, only utm_* stripped",
+   "lost_orders_ci": [
+    159.0,
+    569.8
+   ],
+   "lost_orders_per_month": 315.8,
+   "lost_revenue_per_month": 30310.0,
+   "mttd_minutes": 2.8,
+   "oversold_per_month": 0.0,
+   "pages": 4,
+   "peak_pods": 70,
+   "reached_everyone": 0,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "shop_as_found": {
+   "availability": 0.998921,
+   "availability_ci": [
+    0.998606,
+    0.999232
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.998318,
+   "bf_fast_share": 0.994111,
+   "blocked_by_gate": 0,
+   "caught_by_canary": 0,
+   "compute_eur_per_month": 2531.0,
+   "cost_eur_per_month": 14447.0,
+   "defect_hours_full": 111.6,
+   "detected": 15,
+   "episodes": 15,
+   "false_pages_per_week": 2.67,
+   "fast_share": 0.998584,
+   "hit_ratio": 0.2757,
+   "label": "Shop as found: broad bans, flush on release, CPU scaling, threshold alerts",
+   "lost_orders_ci": [
+    1026.2,
+    2274.7
+   ],
+   "lost_orders_per_month": 1566.5,
+   "lost_revenue_per_month": 150380.0,
+   "mttd_minutes": 4.0,
+   "oversold_per_month": 0.0,
+   "pages": 40,
+   "peak_pods": 140,
+   "reached_everyone": 11,
+   "wrong_ci": [
+    0.0,
+    0.0
+   ],
+   "wrong_per_100k": 0.0
+  },
+  "short_ttl": {
+   "availability": 0.998934,
+   "availability_ci": [
+    0.998664,
+    0.9992
+   ],
+   "bad_builds": 11,
+   "bf_availability": 0.998382,
+   "bf_fast_share": 0.994134,
+   "blocked_by_gate": 0,
+   "caught_by_canary": 0,
+   "compute_eur_per_month": 2532.0,
+   "cost_eur_per_month": 14448.0,
+   "defect_hours_full": 180.4,
+   "detected": 15,
+   "episodes": 15,
+   "false_pages_per_week": 1.83,
+   "fast_share": 0.998585,
+   "hit_ratio": 0.2761,
+   "label": "Five-minute TTL instead of purges",
+   "lost_orders_ci": [
+    1021.8,
+    2119.5
+   ],
+   "lost_orders_per_month": 1513.6,
+   "lost_revenue_per_month": 145310.0,
+   "mttd_minutes": 4.0,
+   "oversold_per_month": 2632.1,
+   "pages": 35,
+   "peak_pods": 140,
+   "reached_everyone": 11,
+   "wrong_ci": [
+    2139.51,
+    2286.15
+   ],
+   "wrong_per_100k": 2209.54
+  }
+ },
+ "world": {
+  "blips": 245,
+  "changes": 83818,
+  "days": 42,
+  "defective_builds": 11,
+  "deploys": 51,
+  "incidents": 15,
+  "pages": 103995,
+  "seeds": [
+   8201,
+   8202,
+   8203
+  ],
+  "views": 164013841
+ }
+}

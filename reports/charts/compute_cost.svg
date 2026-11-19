@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 458" font-family="Inter, system-ui, sans-serif" role="img" aria-label="PHP compute per month">
+<rect width="780" height="458" fill="#fcfcfb"/>
+<text x="16" y="24" font-size="14" font-weight="600" fill="#0b0b0b">PHP compute per month</text>
+<text x="320" y="58" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Shop as found</text>
+<rect x="330" y="47" width="322.9" height="16" rx="4" fill="#eb6834"/>
+<text x="658.9" y="59" font-size="11" fill="#52514e">€2,535</text>
+<text x="320" y="84" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Five-minute TTL instead of purges</text>
+<rect x="330" y="73" width="322.8" height="16" rx="4" fill="#eb6834"/>
+<text x="658.8" y="85" font-size="11" fill="#52514e">€2,534</text>
+<text x="320" y="110" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, broad category bans</text>
+<rect x="330" y="99" width="131.3" height="16" rx="4" fill="#b9b8b3"/>
+<text x="467.3" y="111" font-size="11" fill="#52514e">€1,031</text>
+<text x="320" y="136" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, only utm_* stripped</text>
+<rect x="330" y="125" width="132.2" height="16" rx="4" fill="#b9b8b3"/>
+<text x="468.2" y="137" font-size="11" fill="#52514e">€1,038</text>
+<text x="320" y="162" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, analytics cookies bypass the cache</text>
+<rect x="330" y="151" width="136.2" height="16" rx="4" fill="#b9b8b3"/>
+<text x="472.2" y="163" font-size="11" fill="#52514e">€1,069</text>
+<text x="320" y="188" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no grace</text>
+<rect x="330" y="177" width="129.7" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.7" y="189" font-size="11" fill="#52514e">€1,018</text>
+<text x="320" y="214" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, release flushes the cache</text>
+<rect x="330" y="203" width="129.8" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.8" y="215" font-size="11" fill="#52514e">€1,019</text>
+<text x="320" y="240" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no cache warming</text>
+<rect x="330" y="229" width="129.7" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.7" y="241" font-size="11" fill="#52514e">€1,018</text>
+<text x="320" y="266" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, CPU scaling with a high floor</text>
+<rect x="330" y="255" width="333.3" height="16" rx="4" fill="#b9b8b3"/>
+<text x="669.3" y="267" font-size="11" fill="#52514e">€2,617</text>
+<text x="320" y="292" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no campaign prescale</text>
+<rect x="330" y="281" width="104.6" height="16" rx="4" fill="#b9b8b3"/>
+<text x="440.6" y="293" font-size="11" fill="#52514e">€821</text>
+<text x="320" y="318" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, threshold alerts</text>
+<rect x="330" y="307" width="129.7" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.7" y="319" font-size="11" fill="#52514e">€1,018</text>
+<text x="320" y="344" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, ratio burn-rate alerts</text>
+<rect x="330" y="333" width="129.7" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.7" y="345" font-size="11" fill="#52514e">€1,018</text>
+<text x="320" y="370" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no SonarQube gate</text>
+<rect x="330" y="359" width="129.7" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.7" y="371" font-size="11" fill="#52514e">€1,018</text>
+<text x="320" y="396" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="400">Platform, no canary</text>
+<rect x="330" y="385" width="129.7" height="16" rx="4" fill="#b9b8b3"/>
+<text x="465.7" y="397" font-size="11" fill="#52514e">€1,018</text>
+<text x="320" y="422" font-size="12" text-anchor="end" fill="#0b0b0b" font-weight="600">Platform</text>
+<rect x="330" y="411" width="129.7" height="16" rx="4" fill="#2a78d6"/>
+<text x="465.7" y="423" font-size="11" fill="#52514e">€1,018</text>
+<text x="330" y="450" font-size="10" fill="#52514e">Development shops, all seeds.</text></svg>

@@ -1,0 +1,84 @@
+# Full-page cache in front of the PHP pods. The VCL comes from edge/default.vcl; the init container fills in the
+# backend, because VCL has no environment variables.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: varnish
+  labels: {app: varnish, service: varnish}
+spec:
+  replicas: 3
+  selector:
+    matchLabels: {app: varnish}
+  template:
+    metadata:
+      labels: {app: varnish, service: varnish}
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels: {app: varnish}
+      initContainers:
+        - name: render-vcl
+          image: busybox:1.37
+          command: ["sh", "-c", "sed -e \"s/\\${ORIGIN_HOST}/$ORIGIN_HOST/\" -e \"s/\\${ORIGIN_PORT}/$ORIGIN_PORT/\" /vcl-template/default.vcl > /etc/varnish/default.vcl"]
+          env:
+            - {name: ORIGIN_HOST, value: shop-php.shop.svc.cluster.local}
+            - {name: ORIGIN_PORT, value: "80"}
+          volumeMounts:
+            - {name: vcl-template, mountPath: /vcl-template}
+            - {name: vcl, mountPath: /etc/varnish}
+          resources:
+            requests: {cpu: 10m, memory: 16Mi}
+            limits: {cpu: 50m, memory: 32Mi}
+      containers:
+        - name: varnish
+          image: varnish:7.6
+          args: ["-F", "-f", "/etc/varnish/default.vcl", "-a", "http=:8080,HTTP", "-s", "malloc,6G",
+                 "-p", "ban_lurker_sleep=0.05"]
+          ports:
+            - {name: http, containerPort: 8080}
+          readinessProbe:
+            tcpSocket: {port: http}
+            periodSeconds: 5
+          resources:
+            requests: {cpu: "1", memory: 7Gi}
+            limits: {memory: 7Gi}
+          volumeMounts:
+            - {name: vcl, mountPath: /etc/varnish}
+            - {name: varnish-work, mountPath: /var/lib/varnish}
+        - name: exporter
+          image: ghcr.io/jonnenauha/prometheus_varnish_exporter:1.6.1
+          ports:
+            - {name: metrics, containerPort: 9131}
+          volumeMounts:
+            - {name: varnish-work, mountPath: /var/lib/varnish}
+          resources:
+            requests: {cpu: 20m, memory: 32Mi}
+            limits: {memory: 64Mi}
+      volumes:
+        - name: vcl-template
+          configMap: {name: varnish-vcl}
+        - {name: vcl, emptyDir: {}}
+        - {name: varnish-work, emptyDir: {medium: Memory}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: varnish
+  labels: {app: varnish}
+spec:
+  selector: {app: varnish}
+  ports:
+    - {name: http, port: 80, targetPort: http}
+    - {name: metrics, port: 9131, targetPort: metrics}
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: varnish
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels: {app: varnish}

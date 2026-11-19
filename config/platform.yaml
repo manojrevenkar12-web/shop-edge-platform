@@ -1,0 +1,28 @@
+# The platform's own settings. The world never reads this file.
+cache:
+  ttl_minutes: 1440          # pages live a day; purges keep prices and stock right
+  short_ttl_minutes: 5       # the "short TTL instead of purges" design
+  grace_minutes: 360         # serve stale while the shop is slow or down
+  purge_batch_seconds: 30
+  max_tags_per_ban: 200
+  warm_pages: 3000           # fetched before a release takes traffic and right after a mass purge
+  warm_rate_per_minute: 900  # how fast the warmer may hit the shop
+autoscaling:
+  rps:
+    target_renders_per_pod: 5.5
+    min_replicas: 6
+    max_replicas: 140
+  cpu:
+    target_utilisation: 0.7
+    min_replicas: 18         # the floor teams set when CPU scaling reacts too late
+    max_replicas: 140
+  down_window_minutes: 5
+  # known peaks, in local time; the HPA floor is raised ahead of them
+  campaigns:
+    - {name: black-friday-launch, start: "2026-11-26T23:00", end: "2026-11-27T03:00", min_replicas: 70}
+    - {name: black-friday-evening, start: "2026-11-27T18:30", end: "2026-11-27T23:00", min_replicas: 55}
+release:
+  canary_weight: 0.1
+  canary_minutes: 15
+  rollback_after_page_minutes: 10
+  rollback_minutes: 3

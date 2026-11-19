@@ -1,0 +1,2 @@
+# Held-out shops: other seeds, run once (see docs/heldout.md and config/heldout.lock).
+seeds: [8201, 8202, 8203]

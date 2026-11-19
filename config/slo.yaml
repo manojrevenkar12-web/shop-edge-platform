@@ -1,0 +1,17 @@
+# Service level objectives for the shop's pages, and how alerts page for them.
+slos:
+  availability:
+    objective: 0.999                       # 99.9% of page views answered without a 5xx
+    bad_expr: 'shop_page_views_total{code=~"5.."}'
+    total_expr: shop_page_views_total
+    threshold_ratio: 0.01                  # the threshold rule this replaces: 5xx above 1% ...
+  latency:
+    objective: 0.99                        # 99% of page views answered within 1.5 s
+    bad_expr: shop_page_views_slow_total      # answered in more than 1.5 s
+    total_expr: shop_page_views_total
+    threshold_ratio: 0.05                  # ... or more than 5% slow
+threshold_for_minutes: 5                   # ... for five minutes
+page_worthy_budget_share: 0.02             # truth for scoring alerts: an episode that burns 2% of its SLO's monthly budget
+burn_rate_windows:                         # Google SRE workbook, page-level windows
+  - {long_minutes: 60, short_minutes: 5, burn: 14.4}
+  - {long_minutes: 360, short_minutes: 30, burn: 6}

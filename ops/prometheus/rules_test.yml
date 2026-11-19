@@ -1,0 +1,39 @@
+# promtool test rules ops/prometheus/rules_test.yml  (run in CI)
+# Each case starts with a clean day, because the budget a minute may spend is measured on the last day's traffic.
+rule_files:
+  - rules.yml
+evaluation_interval: 1m
+tests:
+  # an outage after a clean day: 5% of page views fail for an hour -> the fast-burn page fires
+  - interval: 1m
+    input_series:
+      - series: 'shop_page_views_total{code="200"}'
+        values: '0+1000x1440 1440000+950x90'
+      - series: 'shop_page_views_total{code="503"}'
+        values: '0+0x1440 0+50x90'
+      - series: 'shop_page_views_slow_total'
+        values: '0+0x1530'
+    alert_rule_test:
+      - eval_time: 1510m
+        alertname: AvailabilityBudgetBurn60m
+        exp_alerts:
+          - exp_labels: {severity: page, slo: availability}
+            exp_annotations:
+              summary: availability error budget burning 14.4x over 60m
+              runbook_url: https://github.com/manojrevenkar12-web/shop-edge-platform/blob/main/docs/runbooks/availability.md
+  # a two-minute blip of 5% errors after a clean day -> nothing pages
+  - interval: 1m
+    input_series:
+      - series: 'shop_page_views_total{code="200"}'
+        values: '0+1000x1440 1440000+950x2 1441900+1000x30'
+      - series: 'shop_page_views_total{code="503"}'
+        values: '0+0x1440 0+50x2 100+0x30'
+      - series: 'shop_page_views_slow_total'
+        values: '0+0x1472'
+    alert_rule_test:
+      - eval_time: 1444m
+        alertname: AvailabilityBudgetBurn60m
+        exp_alerts: []
+      - eval_time: 1444m
+        alertname: AvailabilityBudgetBurn360m
+        exp_alerts: []

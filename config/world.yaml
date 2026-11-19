@@ -1,0 +1,71 @@
+# The simulated shop and everything that happens to it. Only sep/world reads this file; the platform never does.
+seeds: [7101, 7102, 7103]
+start: 2026-11-16            # a Monday; Black Friday falls inside the window
+days: 14
+black_friday_day: 11         # day index (0-based) of the sale
+minute_step: 1
+
+shops: 15                    # country shops on one catalogue
+products: 2200               # per shop, the long tail folded into the popularity curve
+categories: 110              # per shop
+products_per_category: 20
+zipf_products: 1.05
+zipf_categories: 0.9
+
+traffic:
+  page_views_per_minute: 2600    # average, all shops; the real shop is larger, reported numbers scale by this
+  diurnal: [0.25, 0.18, 0.14, 0.12, 0.13, 0.2, 0.38, 0.62, 0.85, 1.0, 1.08, 1.12, 1.15, 1.12, 1.1, 1.12, 1.18, 1.25, 1.35, 1.48, 1.55, 1.42, 1.05, 0.6]
+  weekend: 1.12
+  black_friday: 3.6              # traffic multiplier on the sale day, peaks at midnight launch and in the evening
+  page_mix: {home: 0.08, category: 0.37, product: 0.55}
+  tracked_share: 0.16            # page views arriving with marketing parameters (utm, gclid, fbclid, msclkid)
+  tracked_share_sale: 0.42
+  params_seen: {utm: 0.5, gclid: 0.28, fbclid: 0.14, msclkid: 0.08}
+  analytics_cookie_share: 0.38   # page views carrying only analytics or consent cookies
+  private_share: 0.06            # logged in or with a cart: the page is personal and bypasses the cache
+  conversion: 0.021              # orders per product page view
+  order_value_eur: 96
+
+catalogue_changes:               # from the ERP and the pricing service
+  price_changes_per_hour: 22     # a 2,200-product slice of a 50,000-product catalogue
+  stock_changes_per_hour: 48
+  nightly_price_batch: 500       # at 03:00, repricing
+  sale_price_changes: 1500       # products repriced at 00:00 on the sale day, in every shop
+  out_of_stock_share: 0.18       # of stock changes, how many go to zero
+
+origin:
+  pod_rps: 7.5                   # uncached page renders per second one PHP pod sustains
+  base_latency_ms: 420
+  hit_latency_ms: 28
+  pod_start_minutes: 3
+  noise_error_rate: 0.0004       # background 5xx from the application
+
+incidents:                       # things that go wrong on their own
+  per_week: 2.5
+  kinds:
+    db_failover: {weight: 0.4, minutes: [4, 12], capacity: 0.15}
+    search_cluster_slow: {weight: 0.35, minutes: [15, 50], capacity: 0.55}
+    node_pool_loss: {weight: 0.25, minutes: [8, 25], capacity: 0.5}
+  blips_per_day: 6               # short bursts of 5xx (bots, one bad pod) that are not incidents
+  blip_minutes: [1, 3]
+  blip_error_rate: [0.02, 0.06]
+
+deploys:
+  per_business_day: 2
+  hour: [9, 17]
+  defect_rate: 0.22
+  defects:
+    null_reference: {weight: 0.45, error_rate: [0.08, 0.3], static_analysis_finds: 0.75}
+    slow_query: {weight: 0.3, latency_ms: [250, 900], static_analysis_finds: 0.2}
+    config_error: {weight: 0.25, error_rate: [0.02, 0.1], static_analysis_finds: 0.0}
+
+# what Google Cloud and the CDN charge (list prices, rounded)
+prices:
+  php_pod_hour_eur: 0.19
+  varnish_node_hour_eur: 0.28
+  varnish_nodes: 3
+  cdn_egress_gb_eur: 0.06
+  origin_egress_gb_eur: 0.11
+  html_kb: 95
+  assets_kb_per_view: 1400
+  cdn_hit_assets: 0.97

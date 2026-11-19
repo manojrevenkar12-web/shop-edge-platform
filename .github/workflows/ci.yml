@@ -1,0 +1,91 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13", cache: pip}
+      - run: pip install -r requirements-dev.txt
+      - name: varnishd, so edge/default.vcl is tested in a real Varnish
+        run: sudo apt-get update -q && sudo apt-get install -y -q varnish && varnishd -V
+      - run: ruff check .
+      - name: keys, purges, VCL in Varnish, autoscaler, alerts, gates, FinOps, world, engine, invariants
+        run: python -m pytest
+      - name: the development shops evaluated again give the committed reports
+        run: |
+          python -m sep.eval.cli evaluate
+          git diff --exit-code reports/dev.json reports/blackfriday.json reports/charts
+      - name: the development shops pass the gate; README (with the held-out verdict) and generated rules match
+        # the held-out verdict is reported, not re-judged here: it did not pass (docs/heldout.md)
+        run: python -m sep.eval.cli gate --dev && python -m sep.eval.cli readme --check && python -m sep.eval.cli rules --check
+      - name: the held-out run happened once and is locked
+        run: test -f config/heldout.lock && test -f reports/heldout.json && ! python -m sep.eval.cli heldout
+
+  ops:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: promtool, kustomize and kubeconform
+        run: |
+          curl -sSfL https://github.com/prometheus/prometheus/releases/download/v3.5.0/prometheus-3.5.0.linux-amd64.tar.gz | tar xz
+          sudo cp prometheus-3.5.0.linux-amd64/promtool /usr/local/bin/
+          curl -sSfL "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz" | tar xz
+          sudo cp kustomize /usr/local/bin/
+          curl -sSfL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz | tar xz
+          sudo cp kubeconform /usr/local/bin/
+      - name: SLO rules are valid and page when they should (and not on a blip)
+        working-directory: ops/prometheus
+        run: promtool check rules rules.yml && promtool test rules rules_test.yml
+      - name: Kubernetes manifests build and validate
+        run: |
+          kustomize build --load-restrictor LoadRestrictionsNone deploy/k8s/base > /tmp/k8s.yaml
+          kubeconform -strict -summary -ignore-missing-schemas /tmp/k8s.yaml
+
+  web:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13", cache: pip}
+      - run: pip install -r ../requirements-dev.txt
+      - uses: pnpm/action-setup@v4
+        with: {package_json_file: web/package.json}
+      - uses: actions/setup-node@v4
+        with: {node-version: 22, cache: pnpm, cache-dependency-path: web/pnpm-lock.yaml}
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm build
+      - name: dashboard end to end, with axe
+        run: pnpm e2e
+
+  terraform:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: infra/terraform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false
+      - run: terraform validate
+
+  image:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t sep:ci .
+      - name: the image starts and serves the dashboard and the reports
+        run: |
+          docker run -d --name sep -p 8080:8080 sep:ci
+          for i in $(seq 1 30); do curl -sf localhost:8080/api/health && break; sleep 1; done
+          curl -sf localhost:8080/ | grep -q "Shop edge platform"
+          curl -sf localhost:8080/api/results > /dev/null || { docker logs sep; exit 1; }

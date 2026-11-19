@@ -1,0 +1,12 @@
+# Google Cloud Managed Service for Prometheus scrapes both workloads.
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: shop-edge
+spec:
+  selector:
+    matchExpressions:
+      - {key: app, operator: In, values: [varnish, shop-php]}
+  endpoints:
+    - port: metrics
+      interval: 30s

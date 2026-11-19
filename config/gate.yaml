@@ -1,0 +1,8 @@
+# What the platform must show on the held-out shops before it may be called ready. Fixed before the held-out run.
+platform:
+  min_availability: 0.999            # the SLO
+  min_black_friday_availability: 0.999
+  max_wrong_price_per_100k: 1.0      # page views showing a price that has already changed
+  max_reached_everyone: 0            # broken builds that reached every visitor
+  max_false_pages_per_week: 1.0
+  min_detected_share: 0.9            # of page-worthy episodes, when there are any
